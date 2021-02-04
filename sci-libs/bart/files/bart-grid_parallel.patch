@@ -1,0 +1,14 @@
+diff -Naur bart-0.6.00.orig/src/noncart/grid.c bart-0.6.00/src/noncart/grid.c
+--- bart-0.6.00.orig/src/noncart/grid.c	2020-08-08 15:32:25.343658768 -0400
++++ bart-0.6.00/src/noncart/grid.c	2020-08-08 15:33:10.142657723 -0400
+@@ -334,10 +334,7 @@
+ 	{
+ 		for (unsigned int c = 0; c < ch; c++) {
+ 
+-			// we are allowed to update real and imaginary part independently which works atomically
+-			#pragma omp atomic
+ 			__real(val[c]) += __real(src[ind + c * dims[0] * dims[1] * dims[2]]) * d;
+-			#pragma omp atomic
+ 			__imag(val[c]) += __imag(src[ind + c * dims[0] * dims[1] * dims[2]]) * d;
+ 		}
+ 	};

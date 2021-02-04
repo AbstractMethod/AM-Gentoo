@@ -1,0 +1,5 @@
+diff -Naur bart-9999.orig/Makefiles/Makefile.debug bart-9999/Makefiles/Makefile.debug
+--- bart-9999.orig/Makefiles/Makefile.debug	1969-12-31 19:00:00.000000000 -0500
++++ bart-9999/Makefiles/Makefile.debug	2019-12-11 15:59:15.914500575 -0500
+@@ -0,0 +1 @@
++DEBUG=1

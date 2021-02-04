@@ -1,0 +1,11 @@
+diff -Naur bart-0.6.00.orig/src/noncart/nufft.c bart-0.6.00/src/noncart/nufft.c
+--- bart-0.6.00.orig/src/noncart/nufft.c	2020-08-07 14:43:29.482891301 -0400
++++ bart-0.6.00/src/noncart/nufft.c	2020-08-07 14:46:22.881900624 -0400
+@@ -95,6 +95,7 @@
+ 
+ 	complex float* linphase = md_alloc(ND, lph_dims, CFL_SIZE);
+ 
++#pragma omp parallel for shared(linphase)
+ 	for(int i = 0; i < s; i++) {
+ 
+ 		float shifts2[ND];

@@ -1,0 +1,25 @@
+diff -Naur bart-9999.orig/Makefile bart-9999/Makefile
+--- bart-9999.orig/Makefile	2019-12-11 16:19:12.600510654 -0500
++++ bart-9999/Makefile	2019-12-11 16:22:02.927512088 -0500
+@@ -332,10 +332,10 @@
+ BLAS_L := -L$(BLAS_BASE)/lib -lopenblas
+ else
+ ifeq ($(NOLAPACKE),1)
+-BLAS_L := -L$(BLAS_BASE)/lib -llapack -lblas
++BLAS_L := -L$(BLAS_BASE)/lib -llapack -lblas -lopenblas
+ CPPFLAGS += -Isrc/lapacke
+ else
+-BLAS_L := -L$(BLAS_BASE)/lib -llapacke -lblas
++BLAS_L := -L$(BLAS_BASE)/lib -llapacke -lblas -lopenblas
+ endif
+ endif
+ endif
+@@ -426,7 +426,7 @@
+ # work around fortran problems with static linking
+ LDFLAGS += -static -Wl,--whole-archive -lpthread -Wl,--no-whole-archive -Wl,--allow-multiple-definition
+ LIBS += -lmvec
+-BLAS_L += -llapack -lblas -lgfortran -lquadmath
++BLAS_L += -llapack -lblas -lopenblas -lgfortran -lquadmath
+ endif
+ 
+ 

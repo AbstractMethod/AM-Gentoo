@@ -1,0 +1,5 @@
+diff -Naur bart-9999.orig/Makefiles/Makefile.openmp bart-9999/Makefiles/Makefile.openmp
+--- bart-9999.orig/Makefiles/Makefile.openmp	1969-12-31 19:00:00.000000000 -0500
++++ bart-9999/Makefiles/Makefile.openmp	2019-12-11 15:59:15.914500575 -0500
+@@ -0,0 +1 @@
++OMP=1

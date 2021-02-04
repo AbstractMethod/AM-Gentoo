@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+<email></email>
+</maintainer>
+<use>
+	<flag name="cuda">Add support for CUDA</flag>
+	<flag name="fpic">Compile using position-independent code</flag>
+	<flag name="ismrmrd">Use external ISMRMRD package for reading/writing</flag>
+	<flag name="matlab">Build optional MATLAB programs</flag>
+	<flag name="nolapacke">Compile without LAPACKE installed on system</flag>
+	<flag name="memcfl">Use only in-memory CFL files</flag>
+	<flag name="srclib">Retain source code and libraries in installation</flag>
+</use>
+<longdescription lang="en">
+</longdescription>
+</pkgmetadata>

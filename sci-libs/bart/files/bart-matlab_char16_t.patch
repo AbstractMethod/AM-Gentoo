@@ -1,0 +1,13 @@
+diff -Naur bart-9999.orig/src/mat2cfl.c bart-9999/src/mat2cfl.c
+--- bart-9999.orig/src/mat2cfl.c	2019-12-11 15:30:00.198485788 -0500
++++ bart-9999/src/mat2cfl.c	2019-12-11 15:30:32.478486060 -0500
+@@ -15,6 +15,9 @@
+ #include <stdbool.h>
+ #include <complex.h>
+ 
++#include <stdint.h>
++typedef uint16_t char16_t;
++
+ // MATLAB
+ #include "mat.h"
+ #include "matrix.h"
