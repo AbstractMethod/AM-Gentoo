@@ -61,7 +61,7 @@ BDEPEND="${RDEPEND}
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.0.6-skip-broken-tests.patch"
+	"${FILESDIR}/${P}-skip-broken-tests.patch"
 )
 
 python_prepare_all() {
