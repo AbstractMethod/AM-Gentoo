@@ -1,0 +1,20 @@
+diff -Naur bart-0.8.00.orig/Makefile bart-0.8.00/Makefile
+--- bart-0.8.00.orig/Makefile	2022-10-20 15:12:54.877298036 -0600
++++ bart-0.8.00/Makefile	2022-10-20 15:17:20.744769817 -0600
+@@ -395,7 +395,7 @@
+ 
+ # sm_20 no longer supported in CUDA 9
+ GPUARCH_FLAGS ?=
+-NVCCFLAGS += -DUSE_CUDA -Xcompiler -fPIC -Xcompiler -fopenmp -O2 $(GPUARCH_FLAGS) -I$(srcdir)/ -m64 -ccbin $(CC)
++NVCCFLAGS += -DUSE_CUDA -Xcompiler -fPIC -Xcompiler -fopenmp -O2 $(GPUARCH_FLAGS) -I$(srcdir)/ -m64 $(NVCCFLAGS_LOCAL)
+ #NVCCFLAGS = -Xcompiler -fPIC -Xcompiler -fopenmp -O2  -I$(srcdir)/
+ 
+ 
+diff -Naur bart-0.8.00.orig/Makefiles/Makefile.cuda bart-0.8.00/Makefiles/Makefile.cuda
+--- bart-0.8.00.orig/Makefiles/Makefile.cuda	1969-12-31 17:00:00.000000000 -0700
++++ bart-0.8.00/Makefiles/Makefile.cuda	2022-10-20 15:18:07.976498349 -0600
+@@ -0,0 +1,4 @@
++CUDA=1
++CUDA_BASE=/opt/cuda
++CUDA_LIB=lib64
++NVCCFLAGS_LOCAL=@@GENTOO_NVCC_FLAGS@@

@@ -1,0 +1,5 @@
+diff -Naur bart-0.8.00.orig/Makefiles/Makefile.openblas bart-0.8.00/Makefiles/Makefile.openblas
+--- bart-0.8.00.orig/Makefiles/Makefile.openblas	1969-12-31 17:00:00.000000000 -0700
++++ bart-0.8.00/Makefiles/Makefile.openblas	2022-10-20 15:35:16.987585571 -0600
+@@ -0,0 +1 @@
++OPENBLAS=1
