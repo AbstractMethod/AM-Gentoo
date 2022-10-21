@@ -1,0 +1,34 @@
+diff -Naur view-0.1.00.orig/Makefile view-0.1.00/Makefile
+--- view-0.1.00.orig/Makefile	2021-03-09 23:51:35.525772608 -0500
++++ view-0.1.00/Makefile	2021-03-09 23:54:22.841755805 -0500
+@@ -10,7 +10,7 @@
+     BUILDTYPE = MacOSX
+ endif
+ 
+-
++TOOLBOX_PATH=/opt/bart
+ ifeq ($(TOOLBOX_PATH),)
+ TOOLBOX_INC=/usr/include/bart/
+ TOOLBOX_LIB=/usr/lib/bart/
+@@ -38,8 +38,6 @@
+     EXPDYN = -export-dynamic
+ endif
+ 
+--include Makefile.local
+-
+ 
+ all: view cfl2png
+ 
+@@ -47,10 +45,10 @@
+ 	@echo "STRINGIFY(`cat src/viewer.ui`)" > src/viewer.inc
+ 
+ view:	src/main.c src/view.[ch] src/draw.[ch] src/viewer.inc
+-	$(CC) $(CFLAGS) $(EXPDYN) -o view -I$(TOOLBOX_INC) `pkg-config --cflags gtk+-3.0` src/main.c src/view.c src/draw.c `pkg-config --libs gtk+-3.0` $(TOOLBOX_LIB)/libmisc.a $(TOOLBOX_LIB)/libnum.a -lm -lpng
++	$(CC) $(CFLAGS) $(EXPDYN) -o view -I$(TOOLBOX_INC) `pkg-config --cflags gtk+-3.0` src/main.c src/view.c src/draw.c `pkg-config --libs gtk+-3.0` $(TOOLBOX_LIB)/libmisc.a $(TOOLBOX_LIB)/libnum.a -lm -lpng ${CUDA_L}
+ 
+ cfl2png:	src/cfl2png.c src/view.[ch] src/draw.[ch] src/viewer.inc
+-	$(CC) $(CFLAGS) $(EXPDYN) -o cfl2png -I$(TOOLBOX_INC) src/cfl2png.c src/draw.c $(TOOLBOX_LIB)/libmisc.a $(TOOLBOX_LIB)/libnum.a -lm -lpng
++	$(CC) $(CFLAGS) $(EXPDYN) -o cfl2png -I$(TOOLBOX_INC) src/cfl2png.c src/draw.c $(TOOLBOX_LIB)/libmisc.a $(TOOLBOX_LIB)/libnum.a -lm -lpng ${CUDA_L}
+ 
+ install:
+ 	install view $(DESTDIR)/usr/lib/bart/commands/

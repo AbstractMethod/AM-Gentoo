@@ -1,0 +1,13 @@
+diff -Naur view-0.1.00.orig/Makefile view-0.1.00/Makefile
+--- view-0.1.00.orig/Makefile	2021-03-09 23:56:10.864744957 -0500
++++ view-0.1.00/Makefile	2021-03-09 23:56:43.197741710 -0500
+@@ -1,7 +1,7 @@
+ 
+ 
+-CUDA?=0
+-CUDA_BASE ?= /usr/local/cuda
++CUDA=1
++CUDA_BASE=/opt/cuda
+ 
+ BUILDTYPE = Linux
+ UNAME = $(shell uname -s)
