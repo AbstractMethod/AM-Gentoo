@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cuda
 
-DESCRIPTION="Image viewer for multi-dimensional files from the Berkeley Advanced Reconstruction Toolbox"
+DESCRIPTION="Image viewer for multi-dimensional files from BART"
 HOMEPAGE="https://github.com/mrirecon/view"
 SRC_URI="https://github.com/mrirecon/view/archive/v${PV}.zip -> ${P}.zip"
 #SRC_URI="http://deb.debian.org/debian/pool/main/b/bart-view/bart-view_${PV}.orig.tar.gz" -> "${PN}-${PV}.tar.gz"
