@@ -89,9 +89,10 @@ src_install() {
 	cp "${S}/startup.py" "${MY_D}/startup.py"
 
 	if use doc; then
-		dodir "${MY_DEST}/share/doc/BART"
-		cp "${S}/doc/commands.txt" "${MY_D}/share/doc/BART/"
-		fperms a+r "${MY_DEST}/share/doc/BART/commands.txt"
+		local f
+		for f in ${S}/doc/*.txt ; do
+			[[ -s "${f}" ]] && dodoc "${f}"
+		done
 	fi
 
 	cp -R "${S}/matlab" "${MY_D}/"
@@ -108,23 +109,6 @@ src_install() {
 		doins lib/libbox.a lib/libcalib.a lib/libdfwavelet.a lib/libgrecon.a lib/libiter.a lib/liblinops.a lib/liblowrank.a lib/libmisc.a lib/libmoba.a lib/libnlops.a lib/libnoir.a lib/libnoncart.a lib/libnum.a lib/libsake.a lib/libsense.a lib/libsimu.a lib/libwavelet.a
 		#cp "${S}/lib" "${MY_D}/"
 	fi
-
-	# do bartview shortcuts
-	dodir /opt/bart/bin
-	exeinto /opt/bart/bin
-	local bartview
-
-	bartview="${D}/${MY_DEST}/bin/bartview"
-	echo '#!/bin/sh' > ${bartview}
-	echo '' >> ${bartview}
-	echo "python3 ${MY_DEST}/python/bartview3.py \$1" >> ${bartview}
-	fperms 0755 ${MY_DEST}/bin/bartview
-
-	bartview="${D}/${MY_DEST}/bin/bartview2"
-	echo '#!/bin/sh' > ${bartview}
-	echo '' >> ${bartview}
-	echo "python2 ${MY_DEST}/python/bartview.py \$1" >> ${bartview}
-	fperms 0755 ${MY_DEST}/bin/bartview2
 
 	doman "${S}/doc/bart.1"
 
